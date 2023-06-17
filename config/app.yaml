@@ -1,0 +1,16 @@
+port: 8081
+
+db:
+    type: sqllite
+    dsn: db/raffle.db
+
+token:
+    tokenKey: raffleKey
+    timeout: 2592000
+    isConcurrent: false
+    isShare: false
+
+raffle:
+    title: 抽奖活动
+    startTime: 2023-06-05 00:00:00
+    endTime: 2023-06-20 00:00:00

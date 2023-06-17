@@ -1,0 +1,98 @@
+definitions:
+  common.Resp:
+    properties:
+      code:
+        type: integer
+      data: {}
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: a toy of golang
+  title: Raffle
+  version: "1.0"
+paths:
+  /raffle/doDraw:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: raffleKey
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Resp'
+      summary: 抽奖
+      tags:
+      - 抽奖管理
+  /remark/list:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: raffleKey
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Resp'
+      summary: 说明
+      tags:
+      - 说明管理
+  /user/createUser:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: raffleKey
+        required: true
+        type: string
+      - description: 手机号码
+        in: formData
+        name: phone
+        required: true
+        type: string
+      - description: 姓名
+        in: formData
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Resp'
+      summary: 创建人员
+      tags:
+      - 人员管理
+  /user/getToken:
+    post:
+      parameters:
+      - description: 手机号码
+        in: formData
+        name: phone
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Resp'
+      summary: 获取token
+      tags:
+      - 获取token
+swagger: "2.0"
