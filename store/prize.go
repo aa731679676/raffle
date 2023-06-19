@@ -99,7 +99,7 @@ func GetPrize(userId uint) (uint, error) {
 					processPrize(store.prizeList)
 				}
 				// 存入数据库
-				go saveRecord(userId, prizeId)
+				saveRecord(userId, prizeId)
 				break
 			}
 		}
